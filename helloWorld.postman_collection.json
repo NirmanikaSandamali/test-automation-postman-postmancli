@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "3b44c608-5885-4a27-a1c7-2ac3c5085f88",
+		"name": "helloWorld",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25782579",
+		"_collection_link": "https://gold-escape-795647.postman.co/workspace/API-Automation-DIMANEX~7cea2fce-ad01-4160-b910-f6cf240aea9b/collection/25782579-3b44c608-5885-4a27-a1c7-2ac3c5085f88?action=share&source=collection_link&creator=25782579"
+	},
+	"item": [
+		{
+			"name": "helloWorld",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validate response status\", () =>{\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([201,200]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validate Response time. It should be less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validating Response Content - Message\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"hello world\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validate Status Code String\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/hello",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"hello"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
